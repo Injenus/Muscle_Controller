@@ -1,10 +1,12 @@
 #include <GParser.h>
 
-#define PERIOD 1
+#define PERIOD 2
 
-int EMGdataPin = 14;
+int extensorDataPin = 14;
+int flexorDataPin = 15;
 int led = 13;
-int dataEMG;
+int extensorDataEMG;
+int flexorDataEMG;
 byte angA=31;
 byte angH=150;
 bool flagRecord=false;
@@ -18,7 +20,8 @@ void setup() {
   for (int i=2;i<=21;i++){
     pinMode(i,OUTPUT);
   }
-  pinMode(EMGdataPin,INPUT);
+  pinMode(extensorDataPin,INPUT);
+  pinMode(flexorDataPin,INPUT);
   Serial.begin(115200);
   Serial.setTimeout(50);
   Serial.flush(); //очищаем буфер
@@ -68,22 +71,25 @@ void loop() {
         break;            
     }
   }
-    dataEMG=analogRead(EMGdataPin);
+    extensorDataEMG=analogRead(extensorDataPin);
+    flexorDataEMG=analogRead(flexorDataPin);
     
-    if (flagRecord && dataEMG > 0){
-      if (millis()-sendTime > PERIOD){
-        sendTime = millis();      
-        Serial.print(dataEMG);
+    if (flagRecord){
+      if (millis()-sendTime > PERIOD or true){
+        sendTime = millis();    
+        Serial.print(extensorDataEMG);
         Serial.print(',');
+        //Serial.print(flexorDataEMG);
+        //Serial.print(',');
         Serial.print(angA);
         Serial.print(',');
         Serial.print(angH);
         Serial.print(',');
-        Serial.println(millis() - initTime - deltaTime); 
+        //Serial.println(millis() - initTime - deltaTime);
         
         //Serial.print(0);
         //Serial.print(',');
-        //Serial.println(1100);
+        Serial.println(1100);
       }
     }
 }

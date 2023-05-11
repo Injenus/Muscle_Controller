@@ -37,7 +37,7 @@ def refresh_serial_list():
 def open_port():
     serial.setPortName(ui.serial_combobox.currentText())
     serial.open(QIODevice.ReadWrite)
-    transmit_data([7, 1])
+    transmit_data([3])
 
 
 def close_port():
@@ -169,6 +169,7 @@ def parsing(data):
     elif data[0] == 'START' or data[0] == 'CONTINUE':
         pass
     elif data[0].isdigit():
+
         with open(DIRECTORY + folder + FILENAME + '.csv', 'a',
                   newline="") as csv_file:
             writer = csv.writer(csv_file)
@@ -304,5 +305,12 @@ ui.data_combobox.addItems(
      'TEST'])
 
 #
+def median(new_val):
+    pass
+
+def exp_running_average_adaptive(new_val):
+    pass
+
 ui.show()
 app.exec()
+

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>526</width>
-    <height>389</height>
+    <width>580</width>
+    <height>467</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -70,6 +70,19 @@
               </widget>
              </item>
              <item>
+              <widget class="QPushButton" name="ready_send_data">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Ready</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QPushButton" name="close_serial">
                <property name="minimumSize">
                 <size>
@@ -114,7 +127,7 @@
          <widget class="QTextEdit" name="text_status_serial">
           <property name="minimumSize">
            <size>
-            <width>500</width>
+            <width>520</width>
             <height>70</height>
            </size>
           </property>
@@ -234,7 +247,7 @@
          <widget class="QTextEdit" name="text_status_data">
           <property name="minimumSize">
            <size>
-            <width>500</width>
+            <width>520</width>
             <height>70</height>
            </size>
           </property>
@@ -256,7 +269,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>526</width>
+     <width>580</width>
      <height>26</height>
     </rect>
    </property>
